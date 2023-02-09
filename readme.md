@@ -8,6 +8,7 @@ Skriv en kort beskrivelse av appen her
 
 - [ ] Hva er planen din?
 - [x] Eksempel på ferdig gjøremål
+- test
 
 ## Logg
 
