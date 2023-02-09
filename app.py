@@ -34,6 +34,12 @@ def get_random_title_right():
 
     return right
 
+def get_poster(title):
+    url_poster = f"https://imdb-api.com/en/API/SearchSeries/k_u4wphtij/{title}"
+    resultat_poster = req.get(url_poster, headers = { 'User-agent': 'MB' })
+    data_poster = resultat_poster.json()
+    return data_poster["results"][0]["image"]
+
 
 @app.route("/")
 def index():
