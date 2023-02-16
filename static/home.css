@@ -1,5 +1,6 @@
 body{
     margin: 0;
+    background-color: black;
 }
 
 #grid{
@@ -8,18 +9,20 @@ body{
 }
 
 img{
+    position: absolute;
     width: 640px;
     height: 644px;
     object-fit: cover;
     object-position: 100% 10;
+    opacity: 0.8;
 }
 
-h1, p{
-    position: absolute;
+p{
+    position: relative;
     color: aliceblue;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 50px;
-    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: black;
     text-shadow: -2px 2px black;
 }
@@ -29,10 +32,9 @@ h1, p{
     justify-content: center;
 }
 
-#left{
-
-}
-
-#right{
+#grid_tittel{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
     
 }

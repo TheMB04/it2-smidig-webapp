@@ -8,11 +8,6 @@
     <link rel="stylesheet" href='{{url_for("static", filename="home.css")}}'>
 </head>
 <body>
-    <div id="question">
-        <h1>Which Is Rated Higher?</h1>
-    </div>
-    <p id="left">{{left}}</p>
-    <p id="left">{{right}}</p>
     <div  id="grid">
         <div>
             <img src="{{left_poster}}" alt="">
@@ -20,8 +15,23 @@
         <div>
             <img src="{{right_poster}}" alt="">
         </div>
-        
     </div>
+
+    <div id="question">
+        <p>Which Is Rated Higher?</p>
+    </div>
+    <h5>
+        or
+    </h5>
+    <div id="grid_tittel">
+        <div>
+            <p id="left">{{left}}</p>
+        </div>
+        <div>
+            <p id="right">{{right}}</p>
+        </div>
+    </div>
+    
 </body>
 </html>
 
