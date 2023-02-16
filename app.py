@@ -15,12 +15,10 @@ data_movies = resultat_movies.json()
 
 def get_random_title():
     random = randint(0, 499)
-
     if random >= 250:
         title = data_movies["items"][(499-random)]["title"]
     else:
         title = data_shows["items"][random]["title"]
-
     return title
 
 
@@ -33,11 +31,14 @@ def get_poster(title):
 
 @app.route("/")
 def index():
-    navn = "Higher or Lower"
-    left = get_random_title()
-    right = get_random_title()
-    left_poster = get_poster(left)
-    right_poster = get_poster(right)
-    return render_template("index.html", navn=navn, left=left, right=right, left_poster=left_poster, right_poster=right_poster)
+    #left = get_random_title()
+    #right = get_random_title()
+    #left_poster = get_poster(left)
+    #right_poster = get_poster(right)
+    left = "The Dark Knight"
+    right = "The Wolf of Wall Street"
+    left_poster = "/static/test_bilder/The Dark Knight.jpg"
+    right_poster = "/static/test_bilder/The Wolf of Wall Street.jpg"
+    return render_template("index.html", left=left, right=right, left_poster=left_poster, right_poster=right_poster)
 
 app.run(debug=True)

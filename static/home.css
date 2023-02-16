@@ -1,0 +1,38 @@
+body{
+    margin: 0;
+}
+
+#grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+img{
+    width: 640px;
+    height: 644px;
+    object-fit: cover;
+    object-position: 100% 10;
+}
+
+h1, p{
+    position: absolute;
+    color: aliceblue;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 50px;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    text-shadow: -2px 2px black;
+}
+
+#question{
+    display: flex;
+    justify-content: center;
+}
+
+#left{
+
+}
+
+#right{
+    
+}

@@ -5,12 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Higher or Lower IMDb Rating</title>
+    <link rel="stylesheet" href='{{url_for("static", filename="home.css")}}'>
 </head>
 <body>
-    <h1>Welcome to {{navn}}!</h1>
-    <h2>{{left}} | {{right}}</h2>
-    <img src="{{left_poster}}" alt="">
-    <img src="{{right_poster}}" alt="">
+    <div id="question">
+        <h1>Which Is Rated Higher?</h1>
+    </div>
+    <p id="left">{{left}}</p>
+    <p id="left">{{right}}</p>
+    <div  id="grid">
+        <div>
+            <img src="{{left_poster}}" alt="">
+        </div>
+        <div>
+            <img src="{{right_poster}}" alt="">
+        </div>
+        
+    </div>
 </body>
 </html>
 

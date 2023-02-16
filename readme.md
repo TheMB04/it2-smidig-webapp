@@ -9,6 +9,7 @@ Higher or Lower IMDb
 - Få API for IMDb og lagre det i nettsiden [X]
 - Ta to tilfeldige filmer/serier [X] 
 - Skaffe high-resolution bilder til tittelen [X]
+- Lage fin css []
 - Lage en fungerende klikk funksjon []
 - 
 
