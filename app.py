@@ -5,13 +5,16 @@ from random import randint
 
 app = Flask(__name__)
 
+
 url_shows = "https://imdb-api.com/en/API/Top250TVs/k_u4wphtij"
 resultat_shows = req.get(url_shows, headers = { 'User-agent': 'MB' })
 data_shows = resultat_shows.json()
 
+
 url_movies = "https://imdb-api.com/en/API/Top250Movies/k_u4wphtij"
 resultat_movies = req.get(url_movies, headers = { 'User-agent': 'MB' })
 data_movies = resultat_movies.json()
+
 
 def get_random_title():
     random = randint(0, 499)
@@ -40,5 +43,17 @@ def index():
     left_poster = "/static/test_bilder/The Dark Knight.jpg"
     right_poster = "/static/test_bilder/The Wolf of Wall Street.jpg"
     return render_template("index.html", left=left, right=right, left_poster=left_poster, right_poster=right_poster)
+
+@app.route("/id")
+def id():
+    left = right
+    left_poster = right_poster
+    right = get_random_title()
+    right_poster = get_poster(right)
+    return render_template("index.html", left=left, left_poster=left_poster, right=right, right_poster=right_poster)
+
+
+@app.route("/tap")
+def tap():
 
 app.run(debug=True)

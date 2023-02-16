@@ -38,3 +38,22 @@ p{
     text-align: center;
     
 }
+
+h5{
+    position: absolute;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 60px;
+    color: black;
+    border-radius: 50%;
+    padding: 10px;
+    width: 5%;
+    border: 3px solid aliceblue;
+    background-color: aliceblue;
+    text-align: center;
+}
+
+#or{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
