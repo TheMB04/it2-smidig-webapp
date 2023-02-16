@@ -1,14 +1,16 @@
 # Navn på app her
-
-Skriv en kort beskrivelse av appen her  
+ 
+Higher or Lower IMDb
 
 - [Prosjektbeskrivelse](./prosjektbeskrivelse.md)
 
 ## Skal gjøres
 
-- [ ] Hva er planen din?
-- [x] Eksempel på ferdig gjøremål
-- test
+- Få API for IMDb og lagre det i nettsiden [X]
+- Ta to tilfeldige filmer/serier [X] 
+- Skaffe high-resolution bilder til tittelen []
+- Lage en fungerende klikk funksjon []
+- 
 
 ## Logg
 

@@ -36,6 +36,8 @@ def index():
     navn = "Higher or Lower"
     left = get_random_title()
     right = get_random_title()
-    return render_template("index.html", navn=navn, left=left, right=right)
+    left_poster = get_poster(left)
+    right_poster = get_poster(right)
+    return render_template("index.html", navn=navn, left=left, right=right, left_poster=left_poster, right_poster=right_poster)
 
 app.run(debug=True)
