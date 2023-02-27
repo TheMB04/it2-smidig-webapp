@@ -31,10 +31,12 @@ def get_poster(title):
     data_poster = resultat_poster.json()
     return data_poster["results"][0]["image"]
 
-@app.route
-
-
 @app.route("/")
+def home():
+    pass
+
+
+@app.route("/0")
 def index():
     #left = get_random_title()
     #right = get_random_title()
@@ -58,6 +60,6 @@ def id():
 
 @app.route("/tap")
 def tap():
-    nothing = nothing
+    pass
 
 app.run(debug=True)
