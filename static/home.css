@@ -3,34 +3,39 @@ body{
     background-color: black;
 }
 
+
 #grid{
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
 
+
 img{
     position: absolute;
-    width: 640px;
-    height: 644px;
+    width: 50%;
+    height: 100%;
     object-fit: cover;
     object-position: 100% 10;
     opacity: 0.8;
 }
 
+
 p{
     position: relative;
     color: aliceblue;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 50px;
+    font-size: 400%;
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: black;
     text-shadow: -2px 2px black;
 }
 
+
 #question{
     display: flex;
     justify-content: center;
 }
+
 
 #grid_tittel{
     display: grid;
@@ -39,18 +44,20 @@ p{
     
 }
 
+
 h5{
     position: absolute;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 60px;
+    font-size: 400%;
     color: black;
     border-radius: 50%;
-    padding: 10px;
-    width: 5%;
+    padding: 1.6%;
+    width: 4%;
     border: 3px solid aliceblue;
     background-color: aliceblue;
     text-align: center;
 }
+
 
 #or{
     display: flex;

@@ -31,6 +31,8 @@ def get_poster(title):
     data_poster = resultat_poster.json()
     return data_poster["results"][0]["image"]
 
+@app.route
+
 
 @app.route("/")
 def index():
@@ -43,6 +45,7 @@ def index():
     left_poster = "/static/test_bilder/The Dark Knight.jpg"
     right_poster = "/static/test_bilder/The Wolf of Wall Street.jpg"
     return render_template("index.html", left=left, right=right, left_poster=left_poster, right_poster=right_poster)
+
 
 @app.route("/id")
 def id():
