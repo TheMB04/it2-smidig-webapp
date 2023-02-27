@@ -55,5 +55,6 @@ def id():
 
 @app.route("/tap")
 def tap():
+    nothing = nothing
 
 app.run(debug=True)
