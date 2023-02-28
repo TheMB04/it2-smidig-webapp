@@ -24,7 +24,7 @@ p{
     position: relative;
     color: aliceblue;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 400%;
+    font-size: 300%;
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: black;
     text-shadow: -2px 2px black;
@@ -52,7 +52,7 @@ h5{
     color: black;
     border-radius: 50%;
     padding: 1.6%;
-    width: 4%;
+    width: 5%;
     border: 3px solid aliceblue;
     background-color: aliceblue;
     text-align: center;
