@@ -12,7 +12,7 @@ Higher or Lower IMDb
 - Lage fin css [X]
 - Lage en fungerende klikk funksjon [X]
 - Lage en tap og "win" funksjon [X]
-- Holde score []
+- Holde score [X]
 - Lage hjemmeside []
 - Lage flere modes:
 - Which is more popular []
