@@ -11,8 +11,10 @@ Higher or Lower IMDb
 - Skaffe high-resolution bilder til tittelen [X]
 - Lage fin css [X]
 - Lage en fungerende klikk funksjon []
+- Lage en tap og "win" funksjon []
 - Holde score []
-- 
+- Lage hjemmeside []
+- Lage flere modes []
 
 ## Logg
 
