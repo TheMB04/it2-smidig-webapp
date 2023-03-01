@@ -35,6 +35,9 @@ def get_random_id():
         title = data_shows["items"][random]
     return title
 
+score = 0
+highscore = 0
+
 
 #@app.route("/")
 def home():
@@ -45,20 +48,34 @@ def home():
 def index():
     left = get_random_id()
     right = get_random_id()
-    left_title = left["title"]
-    right_title = right["title"]
-    left_poster = left["image"]
-    right_poster = right["image"]
-    return render_template("index.html", left_title=left_title, right_title=right_title, left_poster=left_poster, right_poster=right_poster)
+    if score == 1:
+        return right
+    else:
+        left_title = left["title"]
+        right_title = right["title"]
+        left_poster = left["image"]
+        right_poster = right["image"]
+        left_rating = left["imDbRating"]
+        right_rating = right["imDbRating"]
+        return render_template("index.html", left_title=left_title, right_title=right_title, left_poster=left_poster, right_poster=right_poster)
 
 
 @app.route("/id")
 def id():
-    left_title = right_title
-    left_poster = right_poster
+    if score == 1:
+        left = index()
+        left = index()
+        left_title = left["title"]
+        left_poster = left["image"]
+        left_rating = left["imDbRating"]
+    else:
+        left_title = right_title
+        left_poster = right_poster
+        left_rating = right_rating
     right = get_random_id()
     right_title = right["title"]
     right_poster = right["image"]
+    right_rating = right["imDbRating"]
     return render_template("index.html", left_title=left_title, left_poster=left_poster, right_title=right_title, right_poster=right_poster)
 
 
