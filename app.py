@@ -30,38 +30,44 @@ fil2.close()
 def get_random_id():
     random = randint(0, 499)
     if random >= 250:
-        title = data_movies["items"][(499-random)]
+        id = data_movies["items"][(499-random)]
     else:
-        title = data_shows["items"][random]
-    return title
+        id = data_shows["items"][random]
+    return id
 
 score = 0
 highscore = 0
 
-
-#@app.route("/")
-def home():
-    pass
+score2 = 1
 
 
 @app.route("/")
+def home():
+    return render_template("home.html")
+
+
+@app.route("/rating")
 def index():
-    left = get_random_id()
-    right = get_random_id()
     if score == 1:
         return right
     else:
+        left = get_random_id()
+        right = get_random_id()
         left_title = left["title"]
         right_title = right["title"]
         left_poster = left["image"]
         right_poster = right["image"]
         left_rating = left["imDbRating"]
         right_rating = right["imDbRating"]
-        return render_template("index.html", left_title=left_title, right_title=right_title, left_poster=left_poster, right_poster=right_poster)
+        return render_template("index.html", left_title=left_title, right_title=right_title, left_poster=left_poster, right_poster=right_poster, score2=score2)
 
 
-@app.route("/id")
-def id():
+@app.route("/rating/<score2>/<id>")
+def id(score2, id):
+    global score
+    score += 1
+    score2 = int(score2)
+    score2 += 1
     if score == 1:
         left = index()
         left = index()
@@ -76,7 +82,7 @@ def id():
     right_title = right["title"]
     right_poster = right["image"]
     right_rating = right["imDbRating"]
-    return render_template("index.html", left_title=left_title, left_poster=left_poster, right_title=right_title, right_poster=right_poster)
+    return render_template("index.html", left_title=left_title, left_poster=left_poster, right_title=right_title, right_poster=right_poster, score2=score2)
 
 
 @app.route("/tap")
