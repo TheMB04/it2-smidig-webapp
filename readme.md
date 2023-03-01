@@ -14,7 +14,9 @@ Higher or Lower IMDb
 - Lage en tap og "win" funksjon []
 - Holde score []
 - Lage hjemmeside []
-- Lage flere modes []
+- Lage flere modes:
+- Which is more popular []
+- Which is older []
 
 ## Logg
 
