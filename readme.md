@@ -10,8 +10,8 @@ Higher or Lower IMDb
 - Ta to tilfeldige filmer/serier [X] 
 - Skaffe high-resolution bilder til tittelen [X]
 - Lage fin css [X]
-- Lage en fungerende klikk funksjon []
-- Lage en tap og "win" funksjon []
+- Lage en fungerende klikk funksjon [X]
+- Lage en tap og "win" funksjon [X]
 - Holde score []
 - Lage hjemmeside []
 - Lage flere modes:

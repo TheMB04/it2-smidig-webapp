@@ -40,6 +40,10 @@ highscore = 0
 
 score2 = 1
 
+right_g = 0
+right_rating_g = 0
+left_rating_g = 0
+
 
 @app.route("/")
 def home():
@@ -48,45 +52,53 @@ def home():
 
 @app.route("/rating")
 def index():
-    if score == 1:
-        return right
-    else:
-        left = get_random_id()
-        right = get_random_id()
-        left_title = left["title"]
-        right_title = right["title"]
-        left_poster = left["image"]
-        right_poster = right["image"]
-        left_rating = left["imDbRating"]
-        right_rating = right["imDbRating"]
-        return render_template("index.html", left_title=left_title, right_title=right_title, left_poster=left_poster, right_poster=right_poster, score2=score2)
+    left = get_random_id()
+    right = get_random_id()
+    global right_g
+    right_g = right
+    left_title = left["title"]
+    right_title = right["title"]
+    left_poster = left["image"]
+    right_poster = right["image"]
+    left_rating = left["imDbRating"]
+    global left_rating_g
+    left_rating_g = left_rating
+    right_rating = right["imDbRating"]
+    global right_rating_g
+    right_rating_g = right_rating
+    return render_template("index.html", left_title=left_title, right_title=right_title, left_poster=left_poster, right_poster=right_poster, score2=score2)
+        
 
 
 @app.route("/rating/<score2>/<id>")
 def id(score2, id):
-    global score
-    score += 1
-    score2 = int(score2)
-    score2 += 1
-    if score == 1:
-        left = index()
-        left = index()
+    global left_rating_g
+    global right_rating_g
+    global right_g
+
+    if right_rating_g > left_rating_g and id == "left":
+        return render_template("tap.html")
+    elif right_rating_g < left_rating_g and id == "right":
+        return render_template("tap.html")
+    else:
+        global score
+        score += 1
+        score2 = int(score2)
+        score2 += 1
+
+        left = right_g
         left_title = left["title"]
         left_poster = left["image"]
         left_rating = left["imDbRating"]
-    else:
-        left_title = right_title
-        left_poster = right_poster
-        left_rating = right_rating
-    right = get_random_id()
-    right_title = right["title"]
-    right_poster = right["image"]
-    right_rating = right["imDbRating"]
-    return render_template("index.html", left_title=left_title, left_poster=left_poster, right_title=right_title, right_poster=right_poster, score2=score2)
+        left_rating_g = left_rating
 
+        right = get_random_id()
+        right_g = right
+        right_title = right["title"]
+        right_poster = right["image"]
+        right_rating = right["imDbRating"]
+        right_rating_g = right_rating
 
-@app.route("/tap")
-def tap():
-    pass
+        return render_template("index.html", left_title=left_title, left_poster=left_poster, right_title=right_title, right_poster=right_poster, score2=score2)
 
 app.run(debug=True)
