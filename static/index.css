@@ -10,7 +10,29 @@ body{
 }
 
 
-img{
+a{
+    text-decoration: none;
+}
+
+
+#grid .general{
+    text-align: center;
+    padding-top: 25%;
+    margin: 10%;
+}
+
+
+#left_div:hover img{
+    opacity: 1;
+}
+
+
+#right_div:hover img{
+    opacity: 1;
+}
+
+
+#grid>div>a>img{
     position: absolute;
     width: 50%;
     height: 100%;
@@ -20,7 +42,7 @@ img{
 }
 
 
-p{
+.general, #rating_grid p{
     position: relative;
     color: aliceblue;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -30,18 +52,53 @@ p{
     text-shadow: -2px 2px black;
 }
 
-
-#question{
-    display: flex;
-    justify-content: center;
+.general{
+    margin: 4.5%;
 }
 
 
-#grid_tittel{
+#rating_grid{
+    position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    align-items: baseline;
+    bottom: 20%;
+}
+
+
+#rating_grid img{
+    position: relative;
+    width: 25%;
+}
+
+
+#rating_grid p{
+    left: 80%;
+}
+
+
+#score{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 20%;
+}
+
+
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 200%;
+    color: aliceblue;
     text-align: center;
-    
+    text-shadow: -3px 3px rgba(0, 0, 0, 0.5);
+}
+
+
+#question{
+    position: absolute;
+    top: 0%;
+    width: 100%;
+    text-align: center;
 }
 
 

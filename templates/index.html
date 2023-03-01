@@ -8,36 +8,41 @@
     <link rel="stylesheet" href='{{url_for("static", filename="index.css")}}'>
 </head>
 <body>
-    <div  id="grid">
-        <div>
-            <a href="/rating/{{score2}}/left">
+    <div id="grid">
+        <div id="left_div">
+            <a href="/rating/{{score}}/left">
                 <img src="{{left_poster}}" alt="">
+                <p class="general">{{left_title}}</p>
+                <div id="rating_grid">
+                    <p>{{left_rating}}</p>
+                    <img src="../static/images/imdb-logo-transparent.png" alt="">
+                </div>
             </a>
         </div>
-        <div>
-            <a href="/rating/{{score2}}/right">
+
+        <div id="right_div">
+            <a href="/rating/{{score}}/right">
                 <img src="{{right_poster}}" alt="">
+                <p class="general">{{right_title}}</p>
             </a>
         </div>
     </div>
 
+
     <div id="question">
-        <p>Which Is Rated Higher?</p>
+        <p class="general">Which Is Rated Higher?</p>
     </div>
-    
-    <div id="grid_tittel">
-        <div>
-            <p id="left">{{left_title}}</p>
-        </div>
-        <div>
-            <p id="right">{{right_title}}</p>
-        </div>
-    </div>
+
 
     <div id="or">
         <h5>
             or
         </h5>
+    </div>
+
+    <div id="score">
+        <h1>Score: {{score}}</h1>
+        <h1>High score: {{highscore}}</h1>
     </div>
     
 </body>

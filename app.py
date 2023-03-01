@@ -38,8 +38,6 @@ def get_random_id():
 score = 0
 highscore = 0
 
-score2 = 1
-
 right_g = 0
 right_rating_g = 0
 left_rating_g = 0
@@ -52,39 +50,50 @@ def home():
 
 @app.route("/rating")
 def index():
+    global right_g
+    global left_rating_g
+    global right_rating_g
+
     left = get_random_id()
     right = get_random_id()
-    global right_g
+    
     right_g = right
     left_title = left["title"]
     right_title = right["title"]
     left_poster = left["image"]
     right_poster = right["image"]
     left_rating = left["imDbRating"]
-    global left_rating_g
     left_rating_g = left_rating
     right_rating = right["imDbRating"]
-    global right_rating_g
     right_rating_g = right_rating
-    return render_template("index.html", left_title=left_title, right_title=right_title, left_poster=left_poster, right_poster=right_poster, score2=score2)
+
+    return render_template("index.html", left_title=left_title, right_title=right_title, left_poster=left_poster, right_poster=right_poster, score=score, left_rating=left_rating, highscore=highscore)
         
 
 
-@app.route("/rating/<score2>/<id>")
-def id(score2, id):
+@app.route("/rating/<score>/<id>")
+def id(score, id):
     global left_rating_g
     global right_rating_g
     global right_g
+    global highscore
+    highscore = int(highscore)
+    score = int(score)
 
     if right_rating_g > left_rating_g and id == "left":
-        return render_template("tap.html")
+        if score > highscore:
+            highscore = score
+            random_id = get_random_id()
+            background = random_id["image"]
+        return render_template("tap.html", highscore=highscore, score=score, background=background)
     elif right_rating_g < left_rating_g and id == "right":
-        return render_template("tap.html")
+        if score > highscore:
+            highscore = score
+            random_id = get_random_id()
+            background = random_id["image"]
+        return render_template("tap.html", highscore=highscore, score=score, background=background)
     else:
-        global score
         score += 1
-        score2 = int(score2)
-        score2 += 1
 
         left = right_g
         left_title = left["title"]
@@ -99,6 +108,6 @@ def id(score2, id):
         right_rating = right["imDbRating"]
         right_rating_g = right_rating
 
-        return render_template("index.html", left_title=left_title, left_poster=left_poster, right_title=right_title, right_poster=right_poster, score2=score2)
+        return render_template("index.html", left_title=left_title, left_poster=left_poster, right_title=right_title, right_poster=right_poster, score=score, left_rating=left_rating, highscore=highscore)
 
 app.run(debug=True)
