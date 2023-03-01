@@ -36,10 +36,6 @@ def get_random_id():
     return title
 
 
-def get_poster(title):
-    return title["image"]
-
-
 #@app.route("/")
 def home():
     pass
@@ -53,10 +49,6 @@ def index():
     right_title = right["title"]
     left_poster = left["image"]
     right_poster = right["image"]
-    #left = "The Dark Knight"
-    #right = "The Wolf of Wall Street"
-    #left_poster = "/static/test_bilder/The Dark Knight.jpg"
-    #right_poster = "/static/test_bilder/The Wolf of Wall Street.jpg"
     return render_template("index.html", left_title=left_title, right_title=right_title, left_poster=left_poster, right_poster=right_poster)
 
 
