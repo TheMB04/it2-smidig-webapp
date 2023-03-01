@@ -4,16 +4,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>You Lost!</title>
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href='{{url_for("static", filename="home.css")}}'    >
 </head>
 <body>
+
+    <img src="{{background}}" alt="">
+
+    <p>
+        Too bad, you lost!
+    </p>
+
+
     <div id="score">
-        <h1>Your score was: {{score}}</h1>
+        <h1>Your score: {{score}}</h1>
         <h1>Your high score: {{highscore}}</h1>
     </div>
 
-    <div>
-        
+    <div id="again">
+        <a href="/rating">Play again</a>
+    </div>
+
+    <div id="home">
+        <a href="/">Home</a>
     </div>
 </body>
 </html>

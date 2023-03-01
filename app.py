@@ -83,18 +83,19 @@ def id(score, id):
     if right_rating_g > left_rating_g and id == "left":
         if score > highscore:
             highscore = score
-            random_id = get_random_id()
-            background = random_id["image"]
+        random_id = get_random_id()
+        background = random_id["image"]
         return render_template("tap.html", highscore=highscore, score=score, background=background)
     elif right_rating_g < left_rating_g and id == "right":
         if score > highscore:
             highscore = score
-            random_id = get_random_id()
-            background = random_id["image"]
+        random_id = get_random_id()
+        background = random_id["image"]
         return render_template("tap.html", highscore=highscore, score=score, background=background)
     else:
         score += 1
 
+        left = get_random_id()
         left = right_g
         left_title = left["title"]
         left_poster = left["image"]
