@@ -45,7 +45,9 @@ left_rating_g = 0
 
 @app.route("/")
 def home():
-    return render_template("home.html")
+    random_id = get_random_id()
+    background = random_id["image"]
+    return render_template("home.html", background=background)
 
 
 @app.route("/rating")
@@ -95,7 +97,6 @@ def id(score, id):
     else:
         score += 1
 
-        left = get_random_id()
         left = right_g
         left_title = left["title"]
         left_poster = left["image"]

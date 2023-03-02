@@ -4,6 +4,23 @@ body{
 }
 
 
+#welcome{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: -10%;
+}
+
+
+#pick{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    text-shadow: none;
+    top: 15%;
+}
+
+
 img{
     position: absolute;
     width: 100%;
@@ -23,13 +40,12 @@ p{
     -webkit-text-stroke-color: black;
     text-shadow: -3.5px 3.5px black;
     text-align: center;
-    top: 5%;
 }
 
 
-div{
+.lose_buttons{
     text-align: center;
-    padding: 2%;
+    margin: 4.5%;
 }
 
 

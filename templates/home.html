@@ -7,8 +7,20 @@
     <link rel="stylesheet" href='{{url_for("static", filename="home.css")}}'>
 </head>
 <body>
-    <a href="/rating">
-        <p>Rating</p>
-    </a>
+    <img src="{{background}}" alt="">
+
+    <p id="welcome">
+        Welcome to higher or lower IMDb!
+    </p>
+
+    <h1 id="pick">
+        Pick a game
+    </h1>
+
+    <div>
+        <a href="/rating">
+            Rating
+        </a>
+    </div>
 </body>
 </html>
