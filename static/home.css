@@ -21,6 +21,13 @@ body{
 }
 
 
+#rating{
+    position: relative;
+    text-align: center;
+    top: 30%;
+}
+
+
 img{
     position: absolute;
     width: 100%;

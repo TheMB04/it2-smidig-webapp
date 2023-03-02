@@ -45,10 +45,12 @@ left_rating_g = 0
 
 @app.route("/")
 def home():
-    random_id = get_random_id()
-    background = random_id["image"]
-    return render_template("home.html", background=background)
-
+    try:
+        random_id = get_random_id()
+        background = random_id["image"]
+        return render_template("home.html", background=background)
+    except:
+        return render_template("error.html")
 
 @app.route("/rating")
 def index():
@@ -56,21 +58,23 @@ def index():
     global left_rating_g
     global right_rating_g
 
-    left = get_random_id()
-    right = get_random_id()
-    
-    right_g = right
-    left_title = left["title"]
-    right_title = right["title"]
-    left_poster = left["image"]
-    right_poster = right["image"]
-    left_rating = left["imDbRating"]
-    left_rating_g = left_rating
-    right_rating = right["imDbRating"]
-    right_rating_g = right_rating
-
-    return render_template("index.html", left_title=left_title, right_title=right_title, left_poster=left_poster, right_poster=right_poster, score=score, left_rating=left_rating, highscore=highscore)
+    try:
+        left = get_random_id()
+        right = get_random_id()
         
+        right_g = right
+        left_title = left["title"]
+        right_title = right["title"]
+        left_poster = left["image"]
+        right_poster = right["image"]
+        left_rating = left["imDbRating"]
+        left_rating_g = left_rating
+        right_rating = right["imDbRating"]
+        right_rating_g = right_rating
+
+        return render_template("index.html", left_title=left_title, right_title=right_title, left_poster=left_poster, right_poster=right_poster, score=score, left_rating=left_rating, highscore=highscore)
+    except:
+        return render_template("error.html")
 
 
 @app.route("/rating/<score>/<id>")
@@ -81,35 +85,39 @@ def id(score, id):
     global highscore
     highscore = int(highscore)
     score = int(score)
+    try:       
+        if right_rating_g > left_rating_g and id == "left":
+            if score > highscore:
+                highscore = score
+            random_id = get_random_id()
+            background = random_id["image"]
+            return render_template("tap.html", highscore=highscore, score=score, background=background)
+        elif right_rating_g < left_rating_g and id == "right":
+            if score > highscore:
+                highscore = score
+            random_id = get_random_id()
+            background = random_id["image"]
+            return render_template("tap.html", highscore=highscore, score=score, background=background)
+        else:
+            score += 1
+            if score > highscore:
+                highscore = score
 
-    if right_rating_g > left_rating_g and id == "left":
-        if score > highscore:
-            highscore = score
-        random_id = get_random_id()
-        background = random_id["image"]
-        return render_template("tap.html", highscore=highscore, score=score, background=background)
-    elif right_rating_g < left_rating_g and id == "right":
-        if score > highscore:
-            highscore = score
-        random_id = get_random_id()
-        background = random_id["image"]
-        return render_template("tap.html", highscore=highscore, score=score, background=background)
-    else:
-        score += 1
+            left = right_g
+            left_title = left["title"]
+            left_poster = left["image"]
+            left_rating = left["imDbRating"]
+            left_rating_g = left_rating
 
-        left = right_g
-        left_title = left["title"]
-        left_poster = left["image"]
-        left_rating = left["imDbRating"]
-        left_rating_g = left_rating
+            right = get_random_id()
+            right_g = right
+            right_title = right["title"]
+            right_poster = right["image"]
+            right_rating = right["imDbRating"]
+            right_rating_g = right_rating
 
-        right = get_random_id()
-        right_g = right
-        right_title = right["title"]
-        right_poster = right["image"]
-        right_rating = right["imDbRating"]
-        right_rating_g = right_rating
-
-        return render_template("index.html", left_title=left_title, left_poster=left_poster, right_title=right_title, right_poster=right_poster, score=score, left_rating=left_rating, highscore=highscore)
+            return render_template("index.html", left_title=left_title, left_poster=left_poster, right_title=right_title, right_poster=right_poster, score=score, left_rating=left_rating, highscore=highscore)
+    except:
+        return render_template("error.html")
 
 app.run(debug=True)
