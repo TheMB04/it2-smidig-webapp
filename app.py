@@ -52,13 +52,13 @@ def home():
     except:
         return render_template("error.html")
 
-@app.route("/<game>")
+@app.route("/play/<game>")
 def index(game):
-    global right_g
-    global left_rating_g
-    global right_rating_g
-
     try:
+        global right_g
+        global left_rating_g
+        global right_rating_g
+
         left = get_random_id()
         right = get_random_id()
         
@@ -92,16 +92,16 @@ def index(game):
         return render_template("error.html")
 
 
-@app.route("/<game>/<score>/<id>")
+@app.route("/play/<game>/<score>/<id>")
 def id(game, score, id):
-    global left_rating_g
-    global right_rating_g
-    global right_g
-    global highscore
-    highscore = int(highscore)
-    score = int(score)
-
     try: 
+        global left_rating_g
+        global right_rating_g
+        global right_g
+        global highscore
+        highscore = int(highscore)
+        score = int(score)
+
         if right_rating_g > left_rating_g and id == "left":
             random_id = get_random_id()
             background = random_id["image"]
