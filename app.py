@@ -52,8 +52,8 @@ def home():
     except:
         return render_template("error.html")
 
-@app.route("/rating")
-def index():
+@app.route("/<game>")
+def index(game):
     global right_g
     global left_rating_g
     global right_rating_g
@@ -77,8 +77,8 @@ def index():
         return render_template("error.html")
 
 
-@app.route("/rating/<score>/<id>")
-def id(score, id):
+@app.route("/<game>/<score>/<id>")
+def id(game, score, id):
     global left_rating_g
     global right_rating_g
     global right_g
@@ -87,14 +87,10 @@ def id(score, id):
     score = int(score)
     try:       
         if right_rating_g > left_rating_g and id == "left":
-            if score > highscore:
-                highscore = score
             random_id = get_random_id()
             background = random_id["image"]
             return render_template("tap.html", highscore=highscore, score=score, background=background)
         elif right_rating_g < left_rating_g and id == "right":
-            if score > highscore:
-                highscore = score
             random_id = get_random_id()
             background = random_id["image"]
             return render_template("tap.html", highscore=highscore, score=score, background=background)
