@@ -67,12 +67,27 @@ def index(game):
         right_title = right["title"]
         left_poster = left["image"]
         right_poster = right["image"]
-        left_rating = left["imDbRating"]
-        left_rating_g = left_rating
-        right_rating = right["imDbRating"]
-        right_rating_g = right_rating
 
-        return render_template("index.html", left_title=left_title, right_title=right_title, left_poster=left_poster, right_poster=right_poster, score=score, left_rating=left_rating, highscore=highscore)
+        if game == "rating":
+            left_rating = left["imDbRating"]
+            left_rating_g = left_rating
+            right_rating = right["imDbRating"]
+            right_rating_g = right_rating
+            name = "Which is rated higher?"
+        elif game == "popularity":
+            left_rating = left["imDbRatingCount"]
+            left_rating_g = left_rating
+            right_rating = right["imDbRatingCount"]
+            right_rating_g = right_rating
+            name = "Which is more popular?"
+        else:
+            left_rating = left["year"]
+            left_rating_g = left_rating
+            right_rating = right["year"]
+            right_rating_g = right_rating
+            name = "Which is the newer release?"
+
+        return render_template("index.html", left_title=left_title, right_title=right_title, left_poster=left_poster, right_poster=right_poster, score=score, left_rating=left_rating, highscore=highscore, game=game, name=name)
     except:
         return render_template("error.html")
 
@@ -85,15 +100,16 @@ def id(game, score, id):
     global highscore
     highscore = int(highscore)
     score = int(score)
+
     try: 
         if right_rating_g > left_rating_g and id == "left":
             random_id = get_random_id()
             background = random_id["image"]
-            return render_template("tap.html", highscore=highscore, score=score, background=background)
+            return render_template("tap.html", highscore=highscore, score=score, background=background, game=game)
         elif right_rating_g < left_rating_g and id == "right":
             random_id = get_random_id()
             background = random_id["image"]
-            return render_template("tap.html", highscore=highscore, score=score, background=background)
+            return render_template("tap.html", highscore=highscore, score=score, background=background, game=game)
         else:
             score += 1
             if score > highscore:
@@ -114,18 +130,21 @@ def id(game, score, id):
                 left_rating_g = left_rating
                 right_rating = right["imDbRating"]
                 right_rating_g = right_rating
+                name = "Which is rated higher?"
             elif game == "popularity":
                 left_rating = left["imDbRatingCount"]
                 left_rating_g = left_rating
                 right_rating = right["imDbRatingCount"]
                 right_rating_g = right_rating
+                name = "Which is more popular?"
             else:
                 left_rating = left["year"]
                 left_rating_g = left_rating
                 right_rating = right["year"]
                 right_rating_g = right_rating
+                name = "Which is the newer release?"
             
-            return render_template("index.html", left_title=left_title, left_poster=left_poster, right_title=right_title, right_poster=right_poster, score=score, left_rating=left_rating, highscore=highscore)
+            return render_template("index.html", left_title=left_title, left_poster=left_poster, right_title=right_title, right_poster=right_poster, score=score, left_rating=left_rating, highscore=highscore, game=game, name=name)
     except:
         return render_template("error.html")
 
