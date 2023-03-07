@@ -85,7 +85,7 @@ def id(game, score, id):
     global highscore
     highscore = int(highscore)
     score = int(score)
-    try:       
+    try: 
         if right_rating_g > left_rating_g and id == "left":
             random_id = get_random_id()
             background = random_id["image"]
@@ -102,16 +102,29 @@ def id(game, score, id):
             left = right_g
             left_title = left["title"]
             left_poster = left["image"]
-            left_rating = left["imDbRating"]
-            left_rating_g = left_rating
+            
 
             right = get_random_id()
             right_g = right
             right_title = right["title"]
             right_poster = right["image"]
-            right_rating = right["imDbRating"]
-            right_rating_g = right_rating
 
+            if game == "rating":
+                left_rating = left["imDbRating"]
+                left_rating_g = left_rating
+                right_rating = right["imDbRating"]
+                right_rating_g = right_rating
+            elif game == "popularity":
+                left_rating = left["imDbRatingCount"]
+                left_rating_g = left_rating
+                right_rating = right["imDbRatingCount"]
+                right_rating_g = right_rating
+            else:
+                left_rating = left["year"]
+                left_rating_g = left_rating
+                right_rating = right["year"]
+                right_rating_g = right_rating
+            
             return render_template("index.html", left_title=left_title, left_poster=left_poster, right_title=right_title, right_poster=right_poster, score=score, left_rating=left_rating, highscore=highscore)
     except:
         return render_template("error.html")
