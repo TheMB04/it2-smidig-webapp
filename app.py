@@ -123,8 +123,8 @@ def id(game, score, id):
 
         highscore = int(highscore)
         score = int(score)
-        left_rating_g = int(left_rating_g)
-        right_rating_g = int(right_rating_g)
+        left_rating_g = float(left_rating_g)
+        right_rating_g = float(right_rating_g)
 
         if right_rating_g > left_rating_g and id == "left":
             random_id = get_random_id()
