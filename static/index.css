@@ -61,6 +61,7 @@ a{
     position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    justify-items: end;
     align-items: baseline;
     bottom: 20%;
 }
@@ -69,11 +70,12 @@ a{
 #rating_grid img{
     position: relative;
     width: 25%;
+    right: 70%;
 }
 
 
 #rating_grid p{
-    left: 80%;
+    position: relative;
 }
 
 
